@@ -15,6 +15,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    height: auto;
   }
 
   h1 {
@@ -49,6 +50,7 @@
     justify-content: center;
     gap: 10px;
     margin-bottom: 40px;
+    max-height: 20vh;
   }
 
   .form-control {
@@ -188,7 +190,7 @@
   <h1>Browse All Collection</h1>
 
   <!-- Search Form -->
-  <form action="/search" method="GET" class="search-form">
+  <form action="/searchblog" method="GET" class="search-form">
     <input type="text" name="query" placeholder="Search for a post" class="form-control" />
     <button type="submit" class="btn btn-primary">Search</button>
   </form>

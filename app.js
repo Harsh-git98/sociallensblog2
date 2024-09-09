@@ -17,7 +17,6 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' })); // Adjust the limit as needed
 app.use(bodyParser.json({ limit: '1mb' })); // If you're also handling JSON payloads
 
