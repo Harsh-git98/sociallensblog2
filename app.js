@@ -20,13 +20,16 @@ app.use(bodyParser.json({ limit: '1mb' })); // If you're also handling JSON payl
 app.use(express.static("public"));
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.render("about");
+  // res
 });
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+
 
 /*
 mongoose.connect('mongodb+srv://shriharshranjangupta:NZVPxEcnTa2pXl0n@cluster0.azeu8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', 
