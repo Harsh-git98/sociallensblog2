@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sociallensblog</title>
+  <link rel="icon" href="img/sociallogo.png" type="image/x-icon">
+  <meta name="google-site-verification" content="3Qb1pgJtBTx0WVS44g6HcZu7A4CA3aYhgp0KqDzv-Go" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<!-- meta description -->
+
+<meta name="description" content="Explore the latest trends, ideas, and stories with The Social Lens Blog. Join insightful discussions on current trends, creative explorations, and more.">
+<meta name="keywords" content="blog, trends, ideas, stories, discussions, creativity, Social Lens, India, news">
+<meta name="author" content="Urvashi">
+
+<meta property="og:title" content="The Social Lens Blog - Explore Trends and Ideas">
+<meta property="og:description" content="Join insightful discussions on current trends, creative explorations, and more.">
+<meta property="og:image" content="img/sociallogo.png">
+
+<meta property="og:type" content="website">
+   
+
+  <style>
+    /* Global styles */
+    /* body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: #181717;
+      background-size: cover;
+      background-position: center;
+    } */
+
+    /* Navbar styles */
+    .navbar {
+      width: 100%;
+      background-color: #7bdeefce;
+      border-bottom: 1px solid black;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .navbar-brand-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .navbar-brand-text {
+      color: #2e2d2d;
+      font-weight: bold;
+      font-size: 1.8em;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: 'Indie Flower', cursive;
+    }
+
+    .navbar-toggle {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 21px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-toggle div {
+      width: 25px;
+      height: 3px;
+      background-color: #2e2d2d;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links li a {
+      color: #2e2d2d;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 15px 20px;
+      display: block;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+      background-color: rgba(31, 29, 29, 0.2);
+      color: #ffeb3b;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 767px) {
+      .navbar-toggle {
+        display: flex;
+      }
+
+      .navbar-brand-text {
+        font-size: 1.2em;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        height: 100vh;
+        width: 200px;
+        background-color: #7bdeefce;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .nav-links li {
+        margin: 15px 0;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">
+      <!-- <img src="img/sociallogo.png" alt="Social Lens Logo" class="navbar-brand-img"> -->
+      <span class="navbar-brand-text">The Social Lens Blog</span>
+    </a>
+    <div class="navbar-toggle" id="mobile-menu">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/contact">Contact Us</a></li>
+    </ul>
+  </nav>
+  <br><br><br><br>
+
+  <script>
+    // Toggle mobile menu
+    document.getElementById("mobile-menu").addEventListener("click", function () {
+      this.classList.toggle("active");
+      document.getElementById("nav-links").classList.toggle("active");
+    });
+  </script>
+

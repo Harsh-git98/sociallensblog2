@@ -1,0 +1,219 @@
+<%- include("partials/header") %>
+
+<style>
+  /* Global Styles */
+  body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f7f6;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 800;
+    font-style: oblique;
+    color: #53a2f7;
+    margin-bottom: 20px;
+  }
+
+  /* Banner Styles */
+  .main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30vh;
+    margin-bottom: 20px;
+  }
+
+  .banner-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* Search Form Styles */
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .form-control {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #53a2f7;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+
+  .form-control:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    background-color: #53a2f7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #007BFF;
+  }
+
+  /* Post Container Styles */
+  .post-box {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .post-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .post-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .post-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+  }
+
+  .post-item {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .post-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .post-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+
+  .post-item h1 {
+    font-size: 1.8em;
+    margin: 15px 0;
+    color: #007BFF;
+  }
+
+  .post-item p {
+    color: #777;
+    margin-bottom: 20px;
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+  .post-item a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+
+  .post-item a:hover {
+    color: #0056b3;
+  }
+  .post-item a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+
+</style>
+
+<div class="container main-content">
+  <img src="img/banner.jpg" alt="Banner Image" class="banner-image">
+</div>
+
+<div class="container">
+  <h1>Browse All Collection</h1>
+
+  <!-- Search Form -->
+  <form action="/search" method="GET" class="search-form">
+    <input type="text" name="query" placeholder="Search for a post" class="form-control" />
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+  <div class="post-box">
+    <div class="post-container">
+      <% posts.forEach(function(post) { %>
+       
+<div class="post-item">
+  <a href="/posts/<%= post._id %>"></a>
+  <img src="https://loremflickr.com/320/240/sunrise?random=<%= post._id %>" alt="Post Image">
+  <h1><%= post.title %></h1>
+  <p><em>Published on <%= post.date.toDateString() %></em></p>
+</div>
+      <% }); %>
+    </div>
+  </div>
+
+  <script>
+    <% if (typeof noResults !== 'undefined' && noResults) { %>
+      alert("No posts found matching your search query. Redirecting to home page.");
+      window.location.href = "/";
+    <% } %>
+  </script>
+
+</div>
+
+<%- include("partials/footer") %>
