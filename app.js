@@ -21,21 +21,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' })); // Adjust the limit as needed
 app.use(bodyParser.json({ limit: '1mb' })); // If you're also handling JSON payloads
 
-// app.use(express.static("public"));
 
-app.get('/', (req, res) => {
-  res.render("about");
-  // res
-});
+// app.get('/', (req, res) => {
+//   res.render("about");
+// });
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+// const port = process.env.PORT || 3000;
+// app.listen(port, () => {
+//   console.log(`Server running on port ${port}`);
+// });
 
 
 
-/*
+// /*
 mongoose.connect('mongodb+srv://shriharshranjangupta:NZVPxEcnTa2pXl0n@cluster0.azeu8.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', 
   { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB Atlas'))
@@ -169,10 +167,13 @@ app.post("/delete", function(req, res) {
     });
 });
 
+// app.listen(3000, function() {
+//   console.log("Server started on port 3000");
+// });
 
-
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
 
-*/
+// */
