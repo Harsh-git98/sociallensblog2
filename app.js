@@ -3,6 +3,7 @@ const axios = require('axios');
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const path = require('path');
 const _ = require("lodash");
 const mongoose = require("mongoose");
 
@@ -13,11 +14,14 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien...";
 const app = express();
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use(bodyParser.urlencoded({ extended: true, limit: '1mb' })); // Adjust the limit as needed
 app.use(bodyParser.json({ limit: '1mb' })); // If you're also handling JSON payloads
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 app.get('/', (req, res) => {
   res.render("about");
